@@ -45,6 +45,8 @@
     // Should check if data reload was successful.
     [refreshHeaderView setCurrentDate]; 
     [super dataSourceDidFinishLoadingNewData];
+    
+    [self.tableView reloadData];
 }
 
 # pragma mark - Table View delegate methods

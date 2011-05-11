@@ -6,7 +6,7 @@ This is a UIView-based pull-to-refresh solution based on EGOTableViewPullRefresh
 Setup
 -----------------------
 
-1. Clone the project from git://github.com/jasonhawkins/PullToRefreshViewController.git
+1. Clone the project: `git clone git://github.com/jasonhawkins/PullToRefreshViewController.git`
 
 2. Drag the PullToRefreshViewController folder into your open Xcode project.
 

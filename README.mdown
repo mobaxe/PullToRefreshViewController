@@ -8,7 +8,7 @@ Setup
 
 1. Clone the project: `git clone git://github.com/jasonhawkins/PullToRefreshViewController.git`
 
-2. Drag the PullToRefreshViewController folder into your open Xcode project.
+2. Drag the PullToRefreshViewController folder into your open view-based Xcode project.
 
 3. Ensure that "Copy items into destination group's folder" is checked.
 

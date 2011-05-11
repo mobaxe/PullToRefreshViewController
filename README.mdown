@@ -1,7 +1,7 @@
 PullToRefreshViewController
 ===========================
 
-This is a UIView-based pull-to-refresh solution based on EGOTableViewPullRefresh, which can be found a [here](https://github.com/jessedc/EGOTableViewPullRefresh). PullToRefreshViewController uses a generic UITableView to create pull-to-refresh functionality.
+This is a UIView-based pull-to-refresh solution based on EGOTableViewPullRefresh, which can be found [here](https://github.com/jessedc/EGOTableViewPullRefresh). PullToRefreshViewController uses a generic UITableView to create pull-to-refresh functionality.
 
 Setup
 -----------------------
@@ -26,11 +26,11 @@ Setup
 	
 5. Subclass your UIViewController to use PullToRefreshViewController.
 
-	5.1. Add `#import "PullToRefreshViewController.h"` to the top of your .h file.
+	5.1. Add `#import "PullToRefreshViewController.h"` to the top of .h of the UIViewController you wish to subclass.
 	
 	5.2. Change `@interface SomeViewController : UIViewController` to `@interface SomeViewController : PullToRefreshViewController`.
 	
-6. This subclass assumes you already have a UITableView ready to use. If not, switch to your view's .xib file and drag in a new UITableView from the Utilities panel on the left. The UITableView can be any height you want. It doesn't have to fill the view.
+6. This subclass assumes you already have a UITableView ready to use. If not, switch to your view's .xib file and drag in a new UITableView from the Utilities panel on the right (this panel may be hidden by default). The UITableView can be any height you want. It doesn't have to fill the view.
 
 7. Connect your UITableView to it's delegate and datasource by control-clicking from the UITableView to File's Owner.
 
@@ -38,6 +38,16 @@ Setup
 
 Methods to override
 -------------------
+
+This subclass requires you to override a few methods for it to work properly. These include delegate methods for both the refreshing behavior and the standard table view. You don't have to worry about conforming to any protocols however, since that's done for you in PullToRefreshViewController.h.
+
+Below are the methods you will need to override. Copy and pasting them into your project as-is will give you a fully functional demo to start with. If you'd prefer just the method stubs, they are:
+
+	* `-(void)reloadTableViewDataSource`
+	* `- (void)dataSourceDidFinishLoadingNewData`
+	* `- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView`
+	* `- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section`
+	* `- (UITableViewCell *)tableView:(UITableView *)atableView cellForRowAtIndexPath:(NSIndexPath *)indexPath`
 
 ### PullToRefreshViewController methods to override
 	-(void)reloadTableViewDataSource

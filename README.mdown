@@ -13,11 +13,11 @@ H2 Would look like this
 *  Connect your table view's data source and delegate from Interface Builder.
 * From your subclass you'll want to implement a version of the following methods:
 
-'-(void)reloadTableViewDataSource
+`-(void)reloadTableViewDataSource
 {
 	//  Should be calling your tableviews model to reload.
   [super performSelector:@selector(dataSourceDidFinishLoadingNewData) withObject:nil afterDelay:3.0];
-}'
+}`
  
 #pragma mark - Pulley delegate methods 
 - (void)reloadTableViewDataSource

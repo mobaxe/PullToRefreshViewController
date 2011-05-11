@@ -97,4 +97,4 @@ Below are the methods you will need to override. Copy and pasting them into your
 Troubleshooting
 ---------------
 
-* You might see a few build warnings that start with `[WARN]Warning: Multiple build commands for output file…` To fix this look for the .git group under the PullToRefreshViewController group in the Navigator panel in Xcode. Remove the .git group. 
+* You might see a few build warnings that begins with `Warning: Multiple build commands for output file…` To fix this look for the .git group under the PullToRefreshViewController group in the Navigator panel in Xcode. Remove the .git group. 

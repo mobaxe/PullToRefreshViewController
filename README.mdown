@@ -1,0 +1,63 @@
+PullToRefreshViewController
+===========================
+
+A UIView-based pull-to-refresh solution based on EGOTableViewPullRefresh, which can be found a [here](https://github.com/jessedc/EGOTableViewPullRefresh).
+
+H2 Would look like this
+-----------------------
+
+### H3 Would look like this
+
+*  PullToRefreshViewController creates a generic UITableView with pull-to-refresh functionality.
+*  After you create your view-based project subclass of PullToRefreshViewController switch to Interface Builder and drag in a UITableView.
+*  Connect your table view's data source and delegate from Interface Builder.
+* From your subclass you'll want to implement a version of the following methods:
+
+'-(void)reloadTableViewDataSource
+{
+	//  Should be calling your tableviews model to reload.
+  [super performSelector:@selector(dataSourceDidFinishLoadingNewData) withObject:nil afterDelay:3.0];
+}
+ 
+#pragma mark - Pulley delegate methods 
+- (void)reloadTableViewDataSource
+{
+    //  Should be calling your tableviews model to reload.
+    [super performSelector:@selector(dataSourceDidFinishLoadingNewData) withObject:nil afterDelay:3.0];
+}
+
+- (void)dataSourceDidFinishLoadingNewData
+{
+    // Should check if data reload was successful.
+    [refreshHeaderView setCurrentDate]; 
+    [super dataSourceDidFinishLoadingNewData];
+    
+    [self.tableView reloadData];
+}
+
+# pragma mark - Table View delegate methods
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 5;
+}
+ 
+- (UITableViewCell *)tableView:(UITableView *)atableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+
+    UITableViewCell *cell = [atableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    }
+
+    // Configure the cell...
+    cell.textLabel.text = [NSString stringWithFormat:@"Row %d", indexPath.row];    
+
+    return cell;
+}

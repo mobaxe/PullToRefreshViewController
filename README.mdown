@@ -43,11 +43,11 @@ This subclass requires you to override a few methods for it to work properly. Th
 
 Below are the methods you will need to override. Copy and pasting them into your project as-is will give you a fully functional demo to start with. If you'd prefer just the method stubs, they are:
 
-	* `-(void)reloadTableViewDataSource`
-	* `- (void)dataSourceDidFinishLoadingNewData`
-	* `- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView`
-	* `- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section`
-	* `- (UITableViewCell *)tableView:(UITableView *)atableView cellForRowAtIndexPath:(NSIndexPath *)indexPath`
+* `-(void)reloadTableViewDataSource`
+* `- (void)dataSourceDidFinishLoadingNewData`
+* `- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView`
+* `- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section`
+* `- (UITableViewCell *)tableView:(UITableView *)atableView cellForRowAtIndexPath:(NSIndexPath *)indexPath`
 
 ### PullToRefreshViewController methods to override
 	-(void)reloadTableViewDataSource

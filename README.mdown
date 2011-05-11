@@ -1,7 +1,7 @@
 PullToRefreshViewController
 ===========================
 
-This is a UIView-based pull-to-refresh solution based on EGOTableViewPullRefresh, which can be found [here](https://github.com/jessedc/EGOTableViewPullRefresh). PullToRefreshViewController uses a generic UITableView to create pull-to-refresh functionality.
+This is a UIView-based pull-to-refresh solution based on EGOTableViewPullRefresh, which can be found [here](https://github.com/jessedc/EGOTableViewPullRefresh). PullToRefreshViewController uses a subclassed UIViewController and a generic UITableView to create pull-to-refresh functionality.
 
 Setup
 -----------------------

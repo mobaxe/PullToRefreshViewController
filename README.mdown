@@ -7,8 +7,11 @@ Setup
 -----------------------
 
 1. Clone the project from git://github.com/jasonhawkins/PullToRefreshViewController.git
+
 2. Drag the PullToRefreshViewController folder into your open Xcode project.
+
 3. Ensure that "Copy items into destination group's folder" is checked.
+
 4. Pull-to-refresh requires the QuartzCore framework. 
 
 	4.1. Select the project name from the Navigator panel on the left.
@@ -22,13 +25,19 @@ Setup
 	4.5. Press the Add button to add the framework.
 	
 5. Subclass your UIViewController to use PullToRefreshViewController.
+
 	5.1. Add `#import "PullToRefreshViewController.h"` to the top of your .h.
+	
 	5.2 Change `@interface TaffyPullViewController : UIViewController` to `@interface TaffyPullViewController : PullToRefreshViewController`.
+	
 6. This subclass assumes you already have a UITableView ready to use. If not, switch to your view's .xib file and drag in a new UITableView from the Utilities panel on the left. The UITableView can be any height you want. It doesn't have to fill the view.
+
 7. Connect your UITableView to it's delegate and datasource by control-clicking from the UITableView to File's Owner.
+
 8. Connect your File's Owner tableView outlet to your UITableView by control-clicking from File's Owner to your UITableView and selecting "tableView" from the popup.
 
 *  After you create your view-based project subclass of PullToRefreshViewController switch to Interface Builder and drag in a UITableView.
+
 *  Connect your table view's data source and delegate from Interface Builder.
 
 Methods to override

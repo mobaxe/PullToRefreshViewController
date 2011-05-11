@@ -15,7 +15,7 @@ Instructions
 	-(void)reloadTableViewDataSource
 	{
 		// Should be calling your tableviews model to reload.
-	  [super performSelector:@selector(dataSourceDidFinishLoadingNewData) withObject:nil afterDelay:3.0];
+		[super performSelector:@selector(dataSourceDidFinishLoadingNewData) withObject:nil afterDelay:3.0];
 	}
 
 	- (void)dataSourceDidFinishLoadingNewData

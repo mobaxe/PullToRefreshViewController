@@ -20,7 +20,7 @@ Setup
 	
 	4.3. Press the disclosure triangle next to Link Binary With Libraries.
 	
-	4.4. Press the plus button and look for QuartzCore.framework.
+	4.4. Press the plus button and search for QuartzCore.framework.
 	
 	4.5. Press the Add button to add the framework.
 	

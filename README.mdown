@@ -41,7 +41,7 @@ Methods to override
 
 This subclass requires you to override a few methods for it to work properly. These include delegate methods for both the refreshing behavior and the standard table view. You don't have to worry about conforming to any protocols however, since that's done for you in PullToRefreshViewController.h.
 
-Below are the methods you will need to override. Copy and pasting them into your project as-is will give you a fully functional demo to start with. If you'd prefer just the method stubs, they are as follows:
+Below are the methods you will need to override. Copy and pasting them into your subclassed .m file as-is will give you a fully functional demo to start with. If you'd prefer just the method stubs, they are as follows:
 
 * `- (void)reloadTableViewDataSource`
 * `- (void)dataSourceDidFinishLoadingNewData`

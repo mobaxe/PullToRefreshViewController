@@ -17,7 +17,7 @@ H2 Would look like this
 {
 	//  Should be calling your tableviews model to reload.
   [super performSelector:@selector(dataSourceDidFinishLoadingNewData) withObject:nil afterDelay:3.0];
-}
+}'
  
 #pragma mark - Pulley delegate methods 
 - (void)reloadTableViewDataSource

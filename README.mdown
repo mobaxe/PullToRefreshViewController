@@ -10,7 +10,7 @@ Setup
 
 2. Drag the PullToRefreshViewController folder into your open view-based Xcode project.
 
-3. Ensure that "Copy items into destination group's folder" is checked.
+3. Ensure that "Copy items into destination group's folder" is checked and click "Finished."
 
 4. Pull-to-refresh requires the QuartzCore framework. 
 
@@ -20,15 +20,17 @@ Setup
 	
 	4.3. Press the disclosure triangle next to Link Binary With Libraries.
 	
-	4.4. Press the plus button and look for QuartzCore.framework.
+	4.4. Press the plus button and search for QuartzCore.framework.
 	
 	4.5. Press the Add button to add the framework.
 	
 5. Subclass your UIViewController to use PullToRefreshViewController.
 
-	5.1. Add `#import "PullToRefreshViewController.h"` to the top of the UIViewController's .h that you wish to subclass.
+        5.1. Select the UIViewController you want to subclass from the Navigator panel on the left.
+
+	5.2. Add `#import "PullToRefreshViewController.h"` to the top of the UIViewController's .h that you wish to subclass.
 	
-	5.2. Change `@interface SomeViewController : UIViewController` to `@interface SomeViewController : PullToRefreshViewController`.
+	5.3. Change `@interface SomeViewController : UIViewController` to `@interface SomeViewController : PullToRefreshViewController`.
 	
 6. This subclass assumes you already have a UITableView ready to use. If not, switch to your view's .xib file and drag in a new UITableView from the Utilities panel on the right (this panel may be hidden by default). The UITableView can be any height you want. It doesn't have to fill the view.
 

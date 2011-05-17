@@ -24,7 +24,7 @@ Setup
 	
 	4.5. Press the Add button to add the framework.
 	
-5. Subclass your UIViewController to use PullToRefreshViewController.
+5. Subclass PullToRefreshViewController in your UIViewController.
 
 	5.1. Select the UIViewController you want to subclass from the Navigator panel on the left.
 
@@ -97,4 +97,4 @@ Below are the methods you will need to override. Copy and pasting them into your
 Troubleshooting
 ---------------
 
-* You might see a few build warnings that begins with `Warning: Multiple build commands for output file…` To fix this look for the .git group under the PullToRefreshViewController group in the Navigator panel in Xcode. Remove the .git group. 
+* You might see build warnings that begin with `Warning: Multiple build commands for output file…` To fix this look for the .git group under the PullToRefreshViewController group in the Navigator panel in Xcode. Remove the .git group. 

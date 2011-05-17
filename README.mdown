@@ -26,7 +26,7 @@ Setup
 	
 5. Subclass PullToRefreshViewController in your UIViewController.
 
-	5.1. Select the UIViewController you want to subclass from the Navigator panel on the left.
+	5.1. Select the UIViewController you want to use as your subclass from the Navigator panel on the left.
 
 	5.2. Add `#import "PullToRefreshViewController.h"` to the top of the UIViewController's .h that you wish to subclass.
 	

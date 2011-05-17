@@ -8,14 +8,14 @@
 #import "PullToRefreshViewController.h"
 
 @implementation PullToRefreshViewController
-@synthesize tableView;
+@synthesize _tableView;
 @synthesize reloading=_reloading;
 @synthesize refreshHeaderView;
 
 # pragma mark - Memory management
 - (void)dealloc
 {
-    [tableView release];
+    [_tableView release];
     [super dealloc];
 }
 

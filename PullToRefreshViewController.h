@@ -11,7 +11,7 @@
 
 @interface PullToRefreshViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
     
-    UITableView *tableView;    
+    UITableView *_tableView;    
     EGORefreshTableHeaderView *refreshHeaderView;
     BOOL _reloading;
 }

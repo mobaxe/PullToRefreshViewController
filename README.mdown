@@ -45,26 +45,43 @@ This subclass requires you to override a few methods for it to work properly. Th
 
 Below are the methods you will need to override. Copy and pasting them into your subclassed .m file as-is will give you a fully functional demo to start with. If you'd prefer just the method stubs, they are as follows:
 
-* `- (void)reloadTableViewDataSource`
-* `- (void)dataSourceDidFinishLoadingNewData`
-* `- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView`
-* `- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section`
-* `- (UITableViewCell *)tableView:(UITableView *)atableView cellForRowAtIndexPath:(NSIndexPath *)indexPath`
+* `- (void)reloadTableViewDataSource;`
+* `- (void)dataSourceDidFinishLoadingNewData:(NSNumber *)loadedData;`
+* `- (void)dataSourceDidFailPresentingError;`
+* `- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;`
+* `- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;`
+* `- (UITableViewCell *)tableView:(UITableView *)atableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;`
 
 ### PullToRefreshViewController methods to override
 	- (void)reloadTableViewDataSource
 	{
-		// Should be calling your tableviews model to reload.
+		// Should be calling your tableview's model to reload.
 		[super performSelector:@selector(dataSourceDidFinishLoadingNewData) withObject:nil afterDelay:3.0];
 	}
 
-	- (void)dataSourceDidFinishLoadingNewData
+	- (void)dataSourceDidFinishLoadingNewData:(NSNumber *)loadedData
 	{
-	    // Should check if data reload was successful.
-	    [refreshHeaderView setCurrentDate]; 
-	    [super dataSourceDidFinishLoadingNewData];
-    
-	    [self.tableView reloadData];
+    // Should check if data reload was successful.
+    if ([loadedData boolValue]) {
+        [refreshHeaderView setCurrentDate];
+        [super dataSourceDidFinishLoadingNewData:nil];
+        [self.tableView reloadData];
+    } else {
+        [super dataSourceDidFinishLoadingNewData:nil];
+				// Present an informative UIAlertView
+        [self dataSourceDidFailPresentingError];
+    }
+	}
+	
+	- (void)dataSourceDidFailPresentingError
+	{
+	    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Network Error"
+	                                                        message:@"Unable to contact the server.\n Please try again later."
+	                                                       delegate:self 
+	                                              cancelButtonTitle:@"Okay" 
+	                                              otherButtonTitles:nil];
+	    [alertView show];
+	    [alertView release];
 	}
 
 ### Table View delegate methods to override

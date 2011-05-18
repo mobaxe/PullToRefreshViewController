@@ -4,11 +4,29 @@
 //  Created by Jason Hawkins on 5/10/11.
 //  Copyright 2011 House of Legend. All rights reserved.
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
+//
 
 #import "PullToRefreshViewController.h"
 
 @implementation PullToRefreshViewController
-@synthesize _tableView;
+@synthesize tableView=_tableView;
 @synthesize reloading=_reloading;
 @synthesize refreshHeaderView;
 
@@ -91,19 +109,21 @@
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {	
+    NSLog(@"Scroll view offset: %f", scrollView.contentOffset.y);
+    
 	if (scrollView.contentOffset.y <= - 65.0f && !_reloading) {
 		_reloading = YES;
-		[self reloadTableViewDataSource];
 		[refreshHeaderView setState:EGOOPullRefreshLoading];
 		[UIView beginAnimations:nil context:NULL];
 		[UIView setAnimationDuration:0.2];
 		self.tableView.contentInset = UIEdgeInsetsMake(60.0f, 0.0f, 0.0f, 0.0f);
 		[UIView commitAnimations];
+        [self reloadTableViewDataSource];
 	}
 }
 
 #pragma mark - RefreshHeaderView methods
-- (void)dataSourceDidFinishLoadingNewData
+- (void)dataSourceDidFinishLoadingNewData:(NSNumber *)loadedData
 {	
 	_reloading = NO;
 	
@@ -113,11 +133,17 @@
 	[UIView commitAnimations];
 	
 	[refreshHeaderView setState:EGOOPullRefreshNormal];
+    
 }
 
 - (void)reloadTableViewDataSource
 {
 	NSLog(@"Please override reloadTableViewDataSource.");
+}
+
+- (void)dataSourceDidFailPresentingError
+{
+    NSLog(@"Please implement your own UIAlert view.");
 }
 
 @end

@@ -1,6 +1,5 @@
 //
 //  PullToRefreshViewController.h
-//  Pulley
 //
 //  Created by Jason Hawkins on 5/10/11.
 //  Copyright 2011 House of Legend. All rights reserved.

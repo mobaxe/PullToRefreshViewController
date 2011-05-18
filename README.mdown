@@ -61,16 +61,16 @@ Below are the methods you will need to override. Copy and pasting them into your
 
 	- (void)dataSourceDidFinishLoadingNewData:(NSNumber *)loadedData
 	{
-    // Should check if data reload was successful.
-    if ([loadedData boolValue]) {
-        [refreshHeaderView setCurrentDate];
-        [super dataSourceDidFinishLoadingNewData:nil];
-        [self.tableView reloadData];
-    } else {
-        [super dataSourceDidFinishLoadingNewData:nil];
-				// Present an informative UIAlertView
-        [self dataSourceDidFailPresentingError];
-    }
+		// Should check if data reload was successful.
+		if ([loadedData boolValue]) {
+			[refreshHeaderView setCurrentDate];
+			[super dataSourceDidFinishLoadingNewData:nil];
+			[self.tableView reloadData];
+		} else {
+			[super dataSourceDidFinishLoadingNewData:nil];
+			// Present an informative UIAlertView
+			[self dataSourceDidFailPresentingError];
+		}
 	}
 	
 	- (void)dataSourceDidFailPresentingError

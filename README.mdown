@@ -96,11 +96,11 @@ Below are the methods you will need to override. Copy and pasting them into your
 	    return 5;
 	}
  
-	- (UITableViewCell *)tableView:(UITableView *)atableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+	- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 	{
 	    static NSString *CellIdentifier = @"Cell";
 
-	    UITableViewCell *cell = [atableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	    if (cell == nil) {
 	    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 	    }
